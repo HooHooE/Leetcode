@@ -10,15 +10,8 @@ bool containsNearbyDuplicate(vector<int>& nums, int k) {
 	hashmap[nums[0]] = 0;
 	for (int i = 1;i<len;i++) {
 		it = hashmap.find(nums[i]);
-		if (it != hashmap.end()) {
-			if (i - it->second > k) {
-				hashmap[it->first] = i;
-			}
-			else return true;
-		}
-		else {
-			hashmap[nums[i]] = i;
-		}
+		if (it != hashmap.end() && i - it->second <= k) return true;
+		else hashmap[nums[i]] = i;
 	}
 	return false;
 }
