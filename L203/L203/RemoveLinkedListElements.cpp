@@ -47,6 +47,5 @@ int main() {
 	head->next->next = new ListNode(6);
 	head->next->next->next = new ListNode(5);
 	ListNode *result = removeElements(head, 6);
-
 	return 0;
 }
